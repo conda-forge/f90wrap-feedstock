@@ -16,16 +16,16 @@ build:
 
 requirements:
   build:
-    - python
     - setuptools
-    - numpy 1.7.*  # [py27]
-    - numpy 1.8.*  # [py35 or py36]
+    - numpy
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
+  build:
+    - python
+    - pip
   run:
     - python
-    - numpy >=1.7  # [py27]
-    - numpy >=1.8  # [py35 or py36]
+    - numpy
 
 test:
   imports:
