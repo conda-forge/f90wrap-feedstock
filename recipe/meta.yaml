@@ -20,7 +20,7 @@ requirements:
     - numpy
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-  build:
+  host:
     - python
     - pip
   run:
