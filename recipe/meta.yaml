@@ -20,13 +20,12 @@ requirements:
     - setuptools
     - numpy 1.7.*  # [py27]
     - numpy 1.8.*  # [py35 or py36]
-    - gcc  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
   run:
     - python
     - numpy >=1.7  # [py27]
     - numpy >=1.8  # [py35 or py36]
-    - libgcc  # [linux]
-    - libgfortran  # [osx]
 
 test:
   imports:
@@ -36,6 +35,9 @@ test:
     - f2py-f90wrap -h
     - conda inspect linkages -p $PREFIX f90wrap  # [not win]
     - conda inspect objects -p $PREFIX f90wrap  # [osx]
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/jameskermode/f90wrap
