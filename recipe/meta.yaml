@@ -1,34 +1,31 @@
-{% set version = "0.1.5" %}
+{% set name = "f90wrap" %}
+{% set version = "0.2.3" %}
 
 package:
-  name: f90wrap
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: f90wrap-{{ version }}.tar.gz
-  url: https://github.com/jameskermode/f90wrap/archive/v{{ version }}.tar.gz
-  sha256: d78125c1679d68f500f83c9ece8cd3c0eeda7d1f1490c3a16a1392e0ed8b298b
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5577ea92934c5aad378df21fb0805b5fb433d6f2b8b9c1bf1a9ec1e3bf842cff
 
 build:
   number: 0
-  skip: True  # [win]
-  script:
-    - export LDFLAGS="-undefined dynamic_lookup -bundle"  # [osx]
-    - python setup.py install --single-version-externally-managed --record record.txt
+  skip: True  # [not linux]
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
-    - python
     - setuptools
-    - numpy 1.7.*  # [py27]
-    - numpy 1.8.*  # [py35 or py36]
-    - gcc  # [not win]
+    - {{ compiler('c') }}
+    - {{ compiler('fortran') }}
+  host:
+    - python
+    - pip
+    - numpy
   run:
     - python
-    - numpy >=1.7  # [py27]
-    - numpy >=1.8  # [py35 or py36]
-    - libgcc  # [linux]
-    - libgfortran  # [osx]
+    - numpy
 
 test:
   imports:
@@ -38,6 +35,9 @@ test:
     - f2py-f90wrap -h
     - conda inspect linkages -p $PREFIX f90wrap  # [not win]
     - conda inspect objects -p $PREFIX f90wrap  # [osx]
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/jameskermode/f90wrap
@@ -49,3 +49,4 @@ extra:
   recipe-maintainers:
     - jameskermode
     - ocefpaf
+    - jan-janssen
