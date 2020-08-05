@@ -11,10 +11,8 @@ source:
 
 build:
   number: 0
-  skip: True  # [win]
-  script: 
-    - export LDFLAGS="-undefined dynamic_lookup -bundle"  # [osx]
-    - "{{ PYTHON }} -m pip install . -vv"
+  skip: True  # [not linux]
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
