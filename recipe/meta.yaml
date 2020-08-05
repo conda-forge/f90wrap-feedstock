@@ -10,7 +10,7 @@ source:
   sha256: d78125c1679d68f500f83c9ece8cd3c0eeda7d1f1490c3a16a1392e0ed8b298b
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   script:
     - export LDFLAGS="-undefined dynamic_lookup -bundle"  # [osx]
@@ -49,3 +49,4 @@ extra:
   recipe-maintainers:
     - jameskermode
     - ocefpaf
+    - jan-janssen
