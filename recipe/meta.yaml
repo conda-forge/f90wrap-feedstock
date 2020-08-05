@@ -17,12 +17,12 @@ build:
 requirements:
   build:
     - setuptools
-    - numpy
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
     - python
     - pip
+    - numpy
   run:
     - python
     - numpy
