@@ -33,8 +33,6 @@ test:
   commands:
     - f90wrap -h
     - f2py-f90wrap -h
-    - conda inspect linkages -p $PREFIX f90wrap  # [not win]
-    - conda inspect objects -p $PREFIX f90wrap  # [osx]
     - pip check
   requires:
     - pip
