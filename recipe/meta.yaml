@@ -1,5 +1,5 @@
 {% set name = "f90wrap" %}
-{% set version = "0.2.3" %}
+{% set version = "0.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5577ea92934c5aad378df21fb0805b5fb433d6f2b8b9c1bf1a9ec1e3bf842cff
+  sha256: aeda3d034be0863bd21f27f28a4e779ed619a17e7297430e442a377ac75c5d12
 
 build:
-  number: 4
-  skip: True  # [win]
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  skip: true  # [win]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -41,7 +41,7 @@ about:
   home: https://github.com/jameskermode/f90wrap
   license: GPL-2.0
   license_file: LICENSE.txt
-  summary: 'Fortran to Python interface generator with derived type support.'
+  summary: Fortran to Python interface generator with derived type support.
 
 extra:
   recipe-maintainers:
