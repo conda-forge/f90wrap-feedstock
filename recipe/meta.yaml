@@ -1,5 +1,5 @@
 {% set name = "f90wrap" %}
-{% set version = "0.2.7" %}
+{% set version = "0.2.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7fc6d834a3375ac306a43f95fbc206fc5efc2cd580b2095a0cebeb7fc759aad5
+  sha256: 23524b66ffb71365d93a701065cefb33bc3ba869bed18d0884d08fac05f097f2
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
