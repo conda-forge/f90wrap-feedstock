@@ -1,5 +1,5 @@
 {% set name = "f90wrap" %}
-{% set version = "0.2.9" %}
+{% set version = "0.2.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 030ad9aeac934b8fa2d07b1f2eef2b6875a44141866e9a16bccefc18cc8d88ca
+  sha256: 845e8fe3afae782252c76bb8d91aca5f47b427af9f01da1dd47a4d8884094ea6
 
 build:
   number: 0
@@ -22,10 +22,10 @@ requirements:
   host:
     - python
     - pip
-    - numpy
+    - numpy <1.24,>=1.13
   run:
     - python
-    - numpy
+    - numpy <1.24,>=1.13
 
 test:
   imports:
