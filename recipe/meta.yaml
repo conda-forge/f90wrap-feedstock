@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - setuptools
+    - meson-python
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
   host:
