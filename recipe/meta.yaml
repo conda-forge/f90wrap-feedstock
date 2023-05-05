@@ -19,11 +19,11 @@ requirements:
     - setuptools
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
-    - meson-python
   host:
     - python
     - pip
     - numpy <1.24,>=1.13
+    - meson-python
   run:
     - python
     - numpy <1.24,>=1.13
