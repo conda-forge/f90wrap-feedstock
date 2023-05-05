@@ -1,5 +1,5 @@
 {% set name = "f90wrap" %}
-{% set version = "0.2.11" %}
+{% set version = "0.2.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7f5eda60efbf9ce5bdffb0c864922910c2766bf9eefd3af290c81051226f7fc7
+  sha256: a61b73bb1cf028db54ad4b0c48627080d88e14463803dd55713c70f3e88b911e
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -23,6 +23,7 @@ requirements:
     - python
     - pip
     - numpy <1.24,>=1.13
+    - meson-python
   run:
     - python
     - numpy <1.24,>=1.13
