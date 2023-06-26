@@ -22,11 +22,11 @@ requirements:
   host:
     - python
     - pip
-    - numpy >=1.13
+    - numpy <1.25,>=1.13
     - meson-python
   run:
     - python
-    - numpy >=1.13
+    - numpy <1.25,>=1.13
 
 test:
   imports:
