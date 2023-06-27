@@ -1,0 +1,22 @@
+From c36ac9f636588153e4e76537364e3898d8ac51f3 Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan-janssen@users.noreply.github.com>
+Date: Tue, 27 Jun 2023 11:54:45 -0600
+Subject: [PATCH] update numpy flags
+
+---
+ f90wrap/arraydatamodule.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/f90wrap/arraydatamodule.c b/f90wrap/arraydatamodule.c
+index 73e56e7..beb0ef4 100644
+--- a/f90wrap/arraydatamodule.c
++++ b/f90wrap/arraydatamodule.c
+@@ -107,7 +107,7 @@ get_array(PyObject *self, PyObject *args)
+   /* Construct array */
+   descr = PyArray_DescrNewFromType(typenum);
+   array = (PyArrayObject*) PyArray_NewFromDescr(&PyArray_Type, descr, nd, dimensions, NULL, 
+-                                                data, NPY_FORTRAN | NPY_WRITEABLE | NPY_ALIGNED, NULL);
++                                                data, NPY_ARRAY_F_CONTIGUOUS | NPY_ARRAY_WRITEABLE | NPY_ARRAY_ALIGNED, NULL);
+   free(dimensions);
+   if((PyObject *)capi_this_tmp!=this_capi) {
+     Py_XDECREF(capi_this_tmp);
