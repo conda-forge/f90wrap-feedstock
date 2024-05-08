@@ -1,5 +1,5 @@
 {% set name = "f90wrap" %}
-{% set version = "0.2.13" %}
+{% set version = "0.2.14" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a61b73bb1cf028db54ad4b0c48627080d88e14463803dd55713c70f3e88b911e
+  sha256: a7c735b493dba21c0c3379d4693901c49129a52f034e111e0f35a6fe605792f1
   patches:
     - numpy.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -20,6 +20,7 @@ requirements:
   build:
     - setuptools
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
