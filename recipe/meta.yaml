@@ -42,7 +42,7 @@ test:
 
 about:
   home: https://github.com/jameskermode/f90wrap
-  license: GPL-2.0
+  license: GPL-2.0-or-later
   license_file: LICENSE.txt
   summary: Fortran to Python interface generator with derived type support.
 
