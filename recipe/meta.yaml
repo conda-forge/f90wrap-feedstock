@@ -26,11 +26,11 @@ requirements:
   host:
     - python
     - pip
-    - numpy >=1.13
+    - numpy
     - meson-python
   run:
     - python
-    - numpy >=1.13
+    - numpy
     - packaging
 
 test:
