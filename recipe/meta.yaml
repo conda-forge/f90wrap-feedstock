@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('fortran') }}
   host:
     - python
+    - python-build
     - pip
     - numpy
     - meson-python
