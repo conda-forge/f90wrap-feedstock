@@ -13,7 +13,6 @@ build:
   number: 2
   skip: true  # [win]
   script:
-  script:
     # this copied from https://github.com/conda-forge/pandas-feedstock/blob/8246e32261168d289d5ebe3b9818e7d6317040d2/recipe/meta.yaml
     - export PYTHONUNBUFFERED=1  # [ppc64le]
     # Cross-compilation stuff vendored from numpy-feedstock
