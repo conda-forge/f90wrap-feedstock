@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/f90wrap-feedsto
 
 Home: https://github.com/jameskermode/f90wrap
 
-Package license: GPL-2.0
+Package license: GPL-2.0-or-later
 
 Summary: Fortran to Python interface generator with derived type support.
 
