@@ -10,24 +10,29 @@ source:
   sha256: f085be1eb0dc62512df604e3f5d7535d70ae1837175beb12e3f49466f08776c6
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - meson-python                           # [build_platform != target_platform]
+    - pkg-config                             # [build_platform != target_platform]
     - setuptools
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - python
+    - python-build
     - pip
-    - numpy >=1.13
+    - numpy
     - meson-python
   run:
     - python
-    - numpy >=1.13
+    - numpy
     - packaging
 
 test:
@@ -42,7 +47,7 @@ test:
 
 about:
   home: https://github.com/jameskermode/f90wrap
-  license: GPL-2.0
+  license: GPL-2.0-or-later
   license_file: LICENSE.txt
   summary: Fortran to Python interface generator with derived type support.
 
