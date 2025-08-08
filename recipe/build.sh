@@ -1,4 +1,5 @@
 #!/bin/bash
+# this file mostly vendored from https://github.com/conda-forge/numpy-feedstock/blob/5ff53c6b92716105f79932d625e14abebf531531/recipe/build.sh
 set -ex
 
 # necessary for cross-compilation to point to the right env
