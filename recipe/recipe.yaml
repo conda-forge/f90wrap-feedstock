@@ -1,0 +1,68 @@
+schema_version: 1
+
+context:
+  name: f90wrap
+  version: "0.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 9c9f08768fe7e9d60de9e913e30909fa1bdc67828f49dffd7149089703d74836
+
+build:
+  number: 1
+  skip: win
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: numpy
+    - if: build_platform != target_platform
+      then: meson-python
+    - if: build_platform != target_platform
+      then: pkg-config
+    - setuptools
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('fortran') }}
+  host:
+    - python
+    - python-build
+    - pip
+    - numpy
+    - meson-python
+  run:
+    - python
+    - numpy
+    - packaging
+
+tests:
+  - python:
+      imports:
+        - f90wrap
+      pip_check: true
+  - requirements:
+      run:
+        - pip
+    script:
+      - f90wrap -h
+      - f2py-f90wrap -h
+
+about:
+  license: GPL-2.0-or-later
+  license_file: LICENSE.txt
+  summary: Fortran to Python interface generator with derived type support.
+  homepage: https://github.com/jameskermode/f90wrap
+
+extra:
+  recipe-maintainers:
+    - jameskermode
+    - ocefpaf
+    - jan-janssen
